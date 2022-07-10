@@ -3,9 +3,13 @@
   "version": "0.0.1",
   "description": "Twitch service for MagicBot",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/*"
+  ],
   "scripts": {
     "dev": "ts-node-dev --respawn --rs src/index.ts",
-    "build": "tsc src/index.ts",
+    "build": "rm -rf lib/ & yarn tsc --build",
     "start": "node lib/index.js",
     "test": "ts-node-dev --respawn --rs tests/index.ts"
   },
