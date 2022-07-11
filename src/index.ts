@@ -41,7 +41,7 @@ export default class TwitchService extends EventEmmiter implements Service {
       this.emit('streamOnline', { ..._data });
     });
 
-    console.log(await listener.getCliTestCommand());
+    return listener;
   }
 
   async streamOffline(userName: string) {
@@ -51,7 +51,7 @@ export default class TwitchService extends EventEmmiter implements Service {
       this.emit('streamOffline', { ..._data });
     });
 
-    console.log(await listener.getCliTestCommand());
+    return listener;
   }
 }
 
