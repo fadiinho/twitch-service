@@ -11,7 +11,8 @@
     "dev": "ts-node-dev --respawn --rs src/index.ts",
     "build": "rm -rf lib/ & yarn tsc --build",
     "start": "node lib/index.js",
-    "test": "ts-node-dev --respawn --rs tests/index.ts"
+    "test": "ts-node-dev --respawn --rs tests/index.ts",
+    "prepare": "yarn build"
   },
   "license": "MIT",
   "dependencies": {
