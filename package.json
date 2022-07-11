@@ -12,7 +12,7 @@
     "build": "rm -rf lib/ & yarn tsc --build",
     "start": "node lib/index.js",
     "test": "ts-node-dev --respawn --rs tests/index.ts",
-    "prepare": "yarn build"
+    "prepare": "tsc -p"
   },
   "license": "MIT",
   "dependencies": {
