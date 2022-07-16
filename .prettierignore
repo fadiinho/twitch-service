@@ -1,9 +1,10 @@
 .DS_Store
 node_modules
-lib/
 .env
 .env.*
 !.env.example
+/lib
+.prettierrc
 
 # Ignore files for PNPM, NPM and YARN
 pnpm-lock.yaml

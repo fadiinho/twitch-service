@@ -3,7 +3,6 @@ import { IRouter } from 'express';
 import { Service } from './structures';
 import { initEvents } from './events';
 
-
 import EventEmmiter from 'node:events';
 export default class TwitchService extends EventEmmiter implements Service {
   serviceName = 'Twitch';
@@ -11,18 +10,19 @@ export default class TwitchService extends EventEmmiter implements Service {
   eventSubMiddleware: ReturnType<typeof initEvents>;
   client: ReturnType<typeof apiClient>;
 
-  constructor(auth: { clientId: string | undefined, clientSecret: string | undefined }, hostname: string | undefined) {
-    if (!auth || !auth.clientSecret || !auth.clientId) throw new Error('auth keys not provided. You need to pass clientId and clientSecret');
+  constructor(auth: { clientId: string | undefined; clientSecret: string | undefined }, hostname: string | undefined) {
+    if (!auth || !auth.clientSecret || !auth.clientId)
+      throw new Error('auth keys not provided. You need to pass clientId and clientSecret');
     if (!hostname) throw new Error('hostname not provided. You need to pass hostname');
 
-    super()
+    super();
 
     this.client = apiClient(auth.clientId, auth.clientSecret);
 
-    this.eventSubMiddleware = initEvents({ 
+    this.eventSubMiddleware = initEvents({
       apiClient: this.client.apiClient,
       hostName: hostname,
-      secret: auth.clientSecret 
+      secret: auth.clientSecret
     });
   }
 
@@ -54,4 +54,3 @@ export default class TwitchService extends EventEmmiter implements Service {
     return listener;
   }
 }
-
