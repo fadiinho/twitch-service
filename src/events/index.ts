@@ -86,12 +86,12 @@ export function initEvents(middlewareConfig: EventSubMiddlewareConfig) {
             broadcasterName: e.broadcasterName,
             broadcaster: await e.getBroadcaster()
           };
+          if (typeof handler === 'function') handler(data, listener);
         })
         .catch((err) => {
           throw new Error(err);
         });
 
-      if (typeof handler === 'function') handler(data, listener);
       return {
         data,
         listener
