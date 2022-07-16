@@ -12,7 +12,9 @@
     "build": "rm -rf lib/ & yarn tsc --build",
     "start": "node lib/index.js",
     "test": "ts-node-dev --respawn --rs tests/index.ts",
-    "prepare": "tsc"
+    "prepare": "tsc",
+    "lint": "prettier --check --plugin-search-dir=. . && eslint .",
+    "format": "prettier --write --plugin-search-dir=. ."
   },
   "license": "MIT",
   "dependencies": {
